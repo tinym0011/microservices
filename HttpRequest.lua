@@ -66,7 +66,7 @@ req:Request(
   end,
   function()
       -- on_close
-      -- 被調用后req不在可用. 資源已經釋放.
+      -- 被調用后req不可用. 資源已經釋放.
   end
 );
 
