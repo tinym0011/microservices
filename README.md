@@ -270,6 +270,7 @@ URI: /plugin?function=set
 #define CLI 1  
 #define HEARTBEAT 3 
 #define CLIQUIT 4
+#define CLIREUSE 5
 
 CLI 
 --用户的请求
@@ -280,6 +281,9 @@ HEARTBEAT
 CLIQUIT 
 --微服务框架主动发给插件, 表示请求的用户链接已断开，插件自行清理资源
 --插件主动发给微服务框架, 表示要求微服务框架断开用户请求的链接
+
+CLIREUSE
+--插件主动发给微服务框架, 表示要求微服务框架 使 用户请求的链接 可重用
 
 ```
 
