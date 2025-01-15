@@ -178,13 +178,13 @@ stream:read64();
 time = stream:read64();
 stream:read32();
 stream:read32();
-ipaddr = to_ipaddr_string(stream:read32());
+ipaddr = ipaddr_string(stream:read32());
 version = stream:read32();
 local len = stream:read32();
 name = stream:read(len);
-解析出对应login接口的信息. 其中IP地址是采用uint32存储使用to_ipaddr_string转成字符串形式.
+解析出对应login接口的信息. 其中IP地址是采用uint32存储使用ipaddr_string转成字符串形式.
 
-function to_ipaddr_string(int32)
+function ipaddr_string(int32)
     local b1 = math.floor(int32 / 16777216) % 256;
     local b2 = math.floor(int32 / 65536) % 256;
     local b3 = math.floor(int32 / 256) % 256;
