@@ -155,7 +155,7 @@ URI:  /ltunnel?mid=1a001b00
 用于在用户与能力主机之间建立一个长链接隧道.
 mid: 指明请求是发给哪个能力主机的
 
-成功返回HTTP 200. HTTP Content返回二进制数据(taskid)
+成功返回HTTP 200. HTTP Content返回二进制数据(taskid)为网络序.
 隧道建立成功后. 用户与能力主机直接具备双向通信能力.
 用户需自行解析与打包Tinym2CM与CM2Tinym. 用户侧使用packet24数据封包
 (微服务框架会将能力主机的packet32转为packet24. 这就是packet32隐式限制length <= 0xFFF000)
