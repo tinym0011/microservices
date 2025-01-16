@@ -249,7 +249,7 @@ URI: /plugin?function=set
 //微服务框架 --> 插件
 	struct {
 		uint8_t version; //协议版本 固定为0
-		uint8_t from;
+		uint8_t method;
 		uint32_t mid_len;
 		uint8_t mid[]; --from为CLI时 mid为用户请求包含的mid
 		uint32_t taskid; 
@@ -260,13 +260,13 @@ URI: /plugin?function=set
 // 插件 --> 微服务框架
 	struct {
 		uint8_t version; //协议版本 固定为0
-		uint8_t to;
+		uint8_t method;
 		uint32_t taskid;
 		uint32_t len; --数据长度
 		uint8_t data[]; -- to为CLI时 data部分为HTTP响应头
 	};
 
-其中from与to
+其中method
 #define CLI 1  
 #define HEARTBEAT 3 
 #define CLIQUIT 4
