@@ -24,7 +24,7 @@ local req = HttpRequest();
 
 -- 可選. 覆蓋請求的HTTP Header的Host字段.
 -- req:setHost(host);
--- 可選. 用於Tls通信設置SNI
+-- 可選. 用於Tls通信設置SNI. 設置Tls后SNI為必選
 -- req:setSni(sni);
 
 -- 可選. 設置HTTP Header的Cache字段.
