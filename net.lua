@@ -62,7 +62,7 @@ ipaddr = session_peername(session);
 certinfo = session_peer_cert(session);
 
 -- 用於客戶端. 初始化session對象
--- sni. 可選. 用於Tls通信的SNI
+-- sni. 可選. 用於Tls通信的SNI. 如果session為Tls時SNI為必選.
 -- verify_server_ca. 可選. 用於Tls通信驗證服務端證書.
 -- cert. 可選. 用於Tls雙向通信. 服務端校驗客戶端.
 -- prikey. 可選. 用於Tls雙向通信. 服務端校驗客戶端.
