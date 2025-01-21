@@ -33,18 +33,9 @@ tinym 0.0.0.0:443 123456 cert.pem privkey.pem ca.pem
 ###### 数据封包
 
 ```c
-#packet32 隐式约定length <= 0xFFF000 (等效packet24)
+#packet32 隐式约定length <= 0xFFF000
 {uint32_t length; uint8_t data[];} 其中length为网络序.
 
-#packet24 限制单个数据包大小(0xFFF000)
-union u32_t {
-	struct {
-		uint32_t length : 24;
-		uint32_t __zero: 8;
-	};
-	uint32_t val;
-};
-{u32_t u32; uint8_t data[];} 其中u32为网络序.
 ```
 
 ###### 权限要求
@@ -157,8 +148,8 @@ mid: 指明请求是发给哪个能力主机的
 
 成功返回HTTP 200. HTTP Content返回二进制数据(taskid)为网络序.
 隧道建立成功后. 用户与能力主机直接具备双向通信能力.
-用户需自行解析与打包Tinym2CM与CM2Tinym. 用户侧使用packet24数据封包
-(微服务框架会将能力主机的packet32转为packet24. 这就是packet32隐式限制length <= 0xFFF000)
+用户需自行解析与打包Tinym2CM与CM2Tinym. 用户侧使用packet32数据封包
+(packet32隐式限制length <= 0xFFF000)
 ```
 
 ###### 获取能力主机信息接口
